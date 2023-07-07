@@ -142,7 +142,7 @@ function App() {
    }
 
    useEffect(() => {
-      !access && navigate('/home');
+      !access && navigate('/');
    }, [access]);
    
 
@@ -155,17 +155,16 @@ function App() {
    // RENDER
    return (
       <div className="App">
-         {
-            location.pathname !== "/" && <Nav onSearch={onSearch} />
+         { "/" && <Nav onSearch={onSearch} />
          }
          <hr />
          <Routes>
-               <Route path="/create" element={<Form login={login} />} />
                <Route
                   path="/home"   
                   element={<Home characters={characters} onClose={onClose}/>} />
                <Route path="/about" element={<About />} />
                <Route path="/detail/:id" element={<Detail />} />
+               <Route path="/" element={<Form login={login} />} />
                
          
          </Routes>
